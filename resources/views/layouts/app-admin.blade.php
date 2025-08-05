@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="csrf_token" content="{{ csrf_token() }}" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -41,9 +42,20 @@
       @include('components.topbar-admin')
       @include('components.navbar-admin')
       <div class="page-wrapper">
+        <div class="page-header d-print-none" aria-label="Page header">
+          <div class="container-xl">
+            <div class="row g-2 align-items-center">
+              <div class="col">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">Pages</div>
+                <h2 class="page-title">@yield('title')</h2>
+              </div>
+            </div>
+          </div>
+        </div>
         <!-- Page body -->
         <div class="page-body">
-          <div class="container-xl my-auto">
+          <div class="container-xl">
             @yield('content')
           </div>
         </div>
@@ -68,8 +80,17 @@
     </div>
     <!-- Libs JS -->
     <!-- Tabler Core -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="{{ asset('admin') }}/js/tabler.min.js?1738096684" defer></script>
     <script src="{{ asset('admin') }}/js/demo.min.js?1738096684" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @stack('js')
+    <script>
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });  
+    </script>
   </body>
 </html>
