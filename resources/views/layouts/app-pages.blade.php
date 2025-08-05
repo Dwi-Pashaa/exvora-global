@@ -113,19 +113,19 @@
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
+          <h4>@lang('footer.foot_link')</h4>
           <ul>
-            <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Galery</a></li>
-            <li><a href="#">Product</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{{ route('home') }}">@lang('navbar.home')</a></li>
+            <li><a href="">@lang('navbar.about')</a></li>
+            <li><a href="">@lang('navbar.gallery')</a></li>
+            <li><a href="">@lang('navbar.product')</a></li>
+            <li><a href="">@lang('navbar.blog')</a></li>
+            <li><a href="">@lang('navbar.contact')</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Category Product</h4>
+          <h4>@lang('footer.foot_categori')</h4>
           <ul>
             @foreach ($categorie as $ct)
               <li><a href="#">{{ $ct->name }}</a></li>
@@ -134,8 +134,8 @@
         </div>
 
         <div class="col-lg-4 col-md-12 footer-newsletter">
-          <h4>Our Newsletter</h4>
-          <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+          <h4>@lang('footer.foot_news')</h4>
+          <p>@lang('footer.foot_news_desc')!</p>
           <form action="forms/newsletter.php" method="post" class="php-email-form">
             <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
             <div class="loading">Loading</div>

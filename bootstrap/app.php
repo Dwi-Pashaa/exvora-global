@@ -14,7 +14,9 @@ return Application::configure(basePath: dirname(__DIR__))
         App\Providers\ViewServiceProvider::class,
     ])
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->web([
+            App\Http\Middleware\SetLocale::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

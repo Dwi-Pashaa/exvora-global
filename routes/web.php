@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SubCategoriController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Pages\HomeController;
+use App\Http\Controllers\SetLocaleController;
 use Illuminate\Support\Facades\Route;
 
 // home-page
@@ -58,3 +59,5 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/seo-management', [SettingController::class, 'seo'])->name('setting.seo');
     });
 });
+
+Route::get('/{lang}/set-locale', [SetLocaleController::class, 'setLocal'])->name('setlocale');

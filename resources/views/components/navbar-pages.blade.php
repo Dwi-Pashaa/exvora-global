@@ -7,12 +7,19 @@
       </a>
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="{{ route('home') }}" class="{{ Route::is('home') ? 'active' : '' }}">Home</a></li>
-          <li><a href="">About</a></li>
-          <li><a href="">Gallery</a></li>
-          <li><a href="">Product</a></li>
-          <li><a href="">Blog</a></li>
-          <li><a href="">Contact</a></li>
+          <li><a href="{{ route('home') }}" class="{{ Route::is('home') ? 'active' : '' }}">@lang('navbar.home')</a></li>
+          <li><a href="">@lang('navbar.about')</a></li>
+          <li><a href="">@lang('navbar.gallery')</a></li>
+          <li><a href="">@lang('navbar.product')</a></li>
+          <li><a href="">@lang('navbar.blog')</a></li>
+          <li><a href="">@lang('navbar.contact')</a></li>
+          <li class="dropdown">
+            <a href="#"><span>@lang('navbar.language')</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="{{ route('setlocale', ['lang' => 'id']) }}">Indonesia</a></li>
+              <li><a href="{{ route('setlocale', ['lang' => 'en']) }}">English</a></li>
+            </ul>
+          </li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
