@@ -4,12 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>@yield('title')</title>
+  <title>@yield('title') &mdash; {{ $companie->name ?? 'Perusahaan Testing' }}</title>
 
   @stack('meta-seo')
   <meta name="description" content="">
   <meta name="keywords" content="">
-
   <!-- Favicons -->
   <link href="{{ asset('pages') }}/img/favicon.png" rel="icon">
   <link href="{{ asset('pages') }}/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -98,19 +97,18 @@
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Sailor</span>
+            <span class="sitename">{{ $companie->name ?? 'Perusahaan' }}</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <p>{{ $companie->address ?? 'Jl. Raya Ds Curukan' }}</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>{{ $companie->telp ?? '085730046642' }}</span></p>
+            <p><strong>Email:</strong> <span>{{ $companie->email ?? 'dwipasha776@gmail.com' }}</span></p>
           </div>
           <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <a href="{{ $companie->twitter ?? '-' }}"><i class="bi bi-twitter-x"></i></a>
+            <a href="{{ $companie->facebook ?? '-' }}"><i class="bi bi-facebook"></i></a>
+            <a href="{{ $companie->instagram ?? '-' }}"><i class="bi bi-instagram"></i></a>
+            <a href="{{ $companie->linkedin ?? '-' }}"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
 
@@ -118,21 +116,20 @@
           <h4>Useful Links</h4>
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Galery</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
+          <h4>Category Product</h4>
           <ul>
             <li><a href="#">Web Design</a></li>
             <li><a href="#">Web Development</a></li>
             <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
           </ul>
         </div>
 
@@ -151,9 +148,11 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">{{ env('APP_NAME') }}</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">
+          {{ $companie->name ?? 'Perusahaan' }}
+      </strong> <span>All Rights Reserved</span></p>
       <div class="credits">
-        Designed by {{ env('APP_NAME') }}
+        Designed by Dwi Pasha Anggara Putra
       </div>
     </div>
 

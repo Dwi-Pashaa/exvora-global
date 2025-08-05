@@ -78,4 +78,9 @@ class SettingController extends Controller
 
         return back()->with('success', 'Berhasil menyimpan data.');
     }
+
+    public function seo()
+    {
+        return view("admin.setting.seo");
+    }
 }

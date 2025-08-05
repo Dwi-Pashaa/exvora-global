@@ -22,5 +22,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/update-account', [SettingController::class, 'updateAccount'])->name('setting.update.account');
         Route::get('/companie-profile', [SettingController::class, 'companie'])->name('setting.companie.profile');
         Route::post('/update-companie', [SettingController::class, 'updateCompanie'])->name('setting.companie.update');
+        Route::get('/seo-management', [SettingController::class, 'seo'])->name('setting.seo');
     });
 });

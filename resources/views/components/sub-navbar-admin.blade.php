@@ -4,7 +4,7 @@
         <div class="list-group list-group-transparent">
             <a href="{{ route('setting') }}" class="list-group-item list-group-item-action d-flex align-items-center {{ Route::is('setting') ? 'active' : '' }}">Akun</a>
             <a href="{{ route('setting.companie.profile') }}" class="list-group-item list-group-item-action d-flex align-items-center {{ Route::is('setting.companie.profile') ? 'active' : '' }}">Profile Perusahaan</a>
-            <a href="#" class="list-group-item list-group-item-action d-flex align-items-center">Seo Management</a>
+            <a href="{{ route('setting.seo') }}" class="list-group-item list-group-item-action d-flex align-items-center {{ Route::is('setting.seo') ? 'active' : '' }}">Seo Management</a>
         </div>
     </div>
 </div>
