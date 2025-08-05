@@ -6,12 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class GalleryController extends Controller
 {
     public function index()
     {
         $galleri = Gallery::all();
 
-        return view("pages.home", compact("galleri"));
+        return view("pages.galleri", compact("galleri"));
     }
 }

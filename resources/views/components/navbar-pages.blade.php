@@ -1,6 +1,6 @@
 <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <a href="{{ route('home') }}" class="logo d-flex align-items-center me-auto">
         <h1 class="sitename">
           {{ $companie->name ?? 'Perusahaan' }}
         </h1>
@@ -8,8 +8,8 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="{{ route('home') }}" class="{{ Route::is('home') ? 'active' : '' }}">@lang('navbar.home')</a></li>
-          <li><a href="">@lang('navbar.about')</a></li>
-          <li><a href="">@lang('navbar.gallery')</a></li>
+          <li><a href="{{ route('about') }}" class="{{ Route::is('about') ? 'active' : '' }}">@lang('navbar.about')</a></li>
+          <li><a href="{{ route('gallery') }}" class="{{ Route::is('gallery') ? 'active' : '' }}">@lang('navbar.gallery')</a></li>
           <li><a href="">@lang('navbar.product')</a></li>
           <li><a href="">@lang('navbar.blog')</a></li>
           <li><a href="">@lang('navbar.contact')</a></li>

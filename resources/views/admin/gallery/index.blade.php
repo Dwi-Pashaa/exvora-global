@@ -1,6 +1,6 @@
 @extends('layouts.app-admin')
 
-@section('title', 'Produk')
+@section('title', 'Galeri')
 
 @push('meta-seo')
     
@@ -14,7 +14,7 @@
     @include('components.alert.success')
     <div class="card mb-3">
         <div class="card-header">
-            <a href="{{ route('product.list.create') }}" class="btn btn-primary">
+            <a href="{{ route('pages.galeri.create') }}" class="btn btn-primary">
                 Tambah
             </a>
         </div>
@@ -52,9 +52,7 @@
                     <tr>
                         <th class="w-1 text-center">No</th>
                         <th class="text-center">Foto/Gambar</th>
-                        <th>Produk</th>
-                        <th class="text-center">Urutan</th>
-                        <th class="text-center">Status</th>
+                        <th>Judul Kegiatan</th>
                         <th class="text-center">Dibuat</th>
                         <th class="text-center">Action</th>
                     </tr>
@@ -63,43 +61,19 @@
                     @php
                         $no = 1;
                     @endphp
-                    @forelse ($product as $item)
+                    @forelse ($galleri as $item)
                         <tr>
                             <td class="text-center">{{ $no++ }}</td>
                             <td class="text-center">
                                 <img src="{{ asset($item->image) }}" width="60" class="img-fluid" alt="">
                             </td>
                             <td>
-                                {{ $item->name }}
-                            </td>
-                            <td class="text-center">
-                                Display Ke - {{ $item->sort }}
-                            </td>
-                            <td class="text-center">
-                                @php
-                                    $statusClass = match ($item->status) {
-                                        'pending' => 'warning',
-                                        'draft' => 'primary',  
-                                        'publish' => 'success',
-                                        default => 'secondary',
-                                    };
-                                @endphp
-
-                                <span class="badge bg-{{ $statusClass }} text-white">
-                                    {{ ucfirst($item->status) }}
-                                </span>
-
+                                {{ $item->title_id }}
                             </td>
                             <td class="text-center">
                                 {{ \Carbon\Carbon::parse($item->created_at)->format('d/m/Y') }}
                             </td>
                             <td class="text-center">
-                                <a href="{{ asset($item->image) }}" target="_blank" class="btn btn-outline-primary">
-                                    Katalog
-                                </a>
-                                <a href="{{ route('product.list.edit', ['id' => $item->id]) }}" class="btn btn-outline-warning">
-                                    Edit
-                                </a>
                                 <a href="javascript:void(0)" onclick="return deleteItem('{{$item->id}}')" class="btn btn-outline-danger">
                                     Hapus
                                 </a>
@@ -107,7 +81,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td class="text-center" colspan="7">Tidak Ada Data</td>
+                            <td class="text-center" colspan="5">Tidak Ada Data</td>
                         </tr> 
                     @endforelse
                 </tbody>
@@ -115,12 +89,12 @@
         </div>
         <div class="card-footer d-flex align-items-center">
             <p class="m-0 text-secondary">
-                Showing <span>{{ $product->firstItem() }}</span> 
-                to <span>{{ $product->lastItem() }}</span> of
-                <span>{{ $product->total() }}</span> entries
+                Showing <span>{{ $galleri->firstItem() }}</span> 
+                to <span>{{ $galleri->lastItem() }}</span> of
+                <span>{{ $galleri->total() }}</span> entries
             </p>
             <ul class="pagination m-0 ms-auto">
-                {{ $product->links() }}
+                {{ $galleri->links() }}
             </ul>
         </div>
     </div>
@@ -128,7 +102,7 @@
 
 @push('js')
     <script>
-        const BASE = "{{ route('product.list.index') }}";
+        const BASE = "{{ route('pages.galeri') }}";
 
         let params = new URLSearchParams(window.location.search);
         $("#sort").change(function() {

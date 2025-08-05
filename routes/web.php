@@ -1,17 +1,23 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\CategoriController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SubCategoriController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Pages\AboutController as PagesAboutController;
+use App\Http\Controllers\Pages\GalleryController as PagesGalleryController;
 use App\Http\Controllers\Pages\HomeController;
 use App\Http\Controllers\SetLocaleController;
 use Illuminate\Support\Facades\Route;
 
 // home-page
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [PagesAboutController::class, 'index'])->name('about');
+Route::get('/gallery', [PagesGalleryController::class, 'index'])->name('gallery');
 
 // admin-page
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -48,6 +54,24 @@ Route::middleware(['auth'])->group(function () {
             Route::put('/{id}/update', [ProductController::class, 'update'])->name('product.list.update');
             Route::delete('/{id}/destroy', [ProductController::class, 'destroy'])->name('product.list.destroy');
             Route::get('/get-sub-categori', [ProductController::class, 'getSubCategori'])->name('product.list.getSubCategori');
+        });
+    });
+
+    Route::prefix('pages')->group(function () {
+        Route::prefix('home')->group(function () {
+            //
+        });
+
+        Route::prefix('about')->group(function () {
+            Route::get('/', [AboutController::class, 'index'])->name('pages.about');
+            Route::post('/store', [AboutController::class, 'store'])->name('pages.about.store');
+        });
+
+        Route::prefix('galleri')->group(function () {
+            Route::get('/', [GalleryController::class, 'index'])->name('pages.galeri');
+            Route::get('/create', [GalleryController::class, 'create'])->name('pages.galeri.create');
+            Route::post('/store', [GalleryController::class, 'store'])->name('pages.galeri.store');
+            Route::delete('/{id}/destroy', [GalleryController::class, 'destroy'])->name('pages.galeri.destroy');
         });
     });
 

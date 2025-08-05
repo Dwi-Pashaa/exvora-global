@@ -3,15 +3,12 @@
 namespace App\Http\Controllers\Pages;
 
 use App\Http\Controllers\Controller;
-use App\Models\Gallery;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class AboutController extends Controller
 {
     public function index()
     {
-        $galleri = Gallery::all();
-
-        return view("pages.home", compact("galleri"));
+        return view("pages.about");
     }
 }

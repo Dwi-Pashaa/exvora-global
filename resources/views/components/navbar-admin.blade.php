@@ -38,7 +38,7 @@
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-news"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h11" /><path d="M8 8l4 0" /><path d="M8 12l4 0" /><path d="M8 16l4 0" /></svg>
                                     </span>
-                                    <span class="nav-link-title"> Berita </span>
+                                    <span class="nav-link-title"> Blog </span>
                                 </a>
                                 <div class="dropdown-menu">
                                     <div class="dropdown-menu-columns">
@@ -47,19 +47,13 @@
                                                 Kategori
                                             </a>
                                             <a class="dropdown-item" href="./accordion.html">
-                                                Tags
-                                            </a>
-                                            <a class="dropdown-item" href="./accordion.html">
-                                                Galery
-                                            </a>
-                                            <a class="dropdown-item" href="./accordion.html">
-                                                Contact
+                                                Blog
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown {{ Route::is('pages*') ? 'active' : '' }}">
                                 <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-packages"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 16.5l-5 -3l5 -3l5 3v5.5l-5 3z" /><path d="M2 13.5v5.5l5 3" /><path d="M7 16.545l5 -3.03" /><path d="M17 16.5l-5 -3l5 -3l5 3v5.5l-5 3z" /><path d="M12 19l5 3" /><path d="M17 16.5l5 -3" /><path d="M12 13.5v-5.5l-5 -3l5 -3l5 3v5.5" /><path d="M7 5.03v5.455" /><path d="M12 8l5 -3" /></svg>
@@ -72,14 +66,11 @@
                                             <a class="dropdown-item" href="./accordion.html">
                                                 Beranda
                                             </a>
-                                            <a class="dropdown-item" href="./accordion.html">
+                                            <a class="dropdown-item {{ Route::is('pages.about') ? 'active' : '' }}" href="{{ route('pages.about') }}">
                                                 Tentang Kami
                                             </a>
-                                            <a class="dropdown-item" href="./accordion.html">
+                                            <a class="dropdown-item {{ Route::is('pages.galeri') ? 'active' : '' }}" href="{{ route('pages.galeri') }}">
                                                 Galeri
-                                            </a>
-                                            <a class="dropdown-item" href="./accordion.html">
-                                                Kontak
                                             </a>
                                         </div>
                                     </div>
