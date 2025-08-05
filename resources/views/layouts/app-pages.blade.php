@@ -10,8 +10,8 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <!-- Favicons -->
-  <link href="{{ asset('pages') }}/img/favicon.png" rel="icon">
-  <link href="{{ asset('pages') }}/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="{{ asset($companie->image ?? 'logo.png') }}" rel="icon">
+  <link href="{{ asset($companie->image ?? 'logo.png') }}" rel="apple-touch-icon">
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -78,10 +78,10 @@
                 <div class="container d-lg-flex justify-content-between align-items-center">
                     <h1 class="mb-2 mb-lg-0">@yield('title')</h1>
                     <nav class="breadcrumbs">
-                    <ol>
-                        <li><a href="index.html">Home</a></li>
-                        <li class="current">@yield('title')</li>
-                    </ol>
+                      <ol>
+                          <li><a href="index.html">Home</a></li>
+                          <li class="current">@yield('title')</li>
+                      </ol>
                     </nav>
                 </div>
             </div>
@@ -115,7 +115,7 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Galery</a></li>
             <li><a href="#">Product</a></li>
@@ -127,9 +127,9 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Category Product</h4>
           <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
+            @foreach ($categorie as $ct)
+              <li><a href="#">{{ $ct->name }}</a></li>
+            @endforeach
           </ul>
         </div>
 

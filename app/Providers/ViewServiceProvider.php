@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Categori;
 use App\Models\Company;
 use Illuminate\Support\Facades\View as FacadesView;
 use Illuminate\Support\ServiceProvider;
@@ -23,7 +24,11 @@ class ViewServiceProvider extends ServiceProvider
     {
         FacadesView::composer('*', function ($view) {
             $companie = Company::latest()->first();
-            $view->with('companie', $companie);
+            $categorie = Categori::all();
+            $view->with([
+                'companie' => $companie,
+                'categorie' => $categorie,
+            ]);
         });
     }
 }

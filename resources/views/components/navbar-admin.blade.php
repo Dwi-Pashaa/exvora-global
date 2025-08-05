@@ -26,7 +26,7 @@
                                             <a class="dropdown-item {{ Route::is('product.categori*') ? 'active' : '' }}" href="{{ route('product.categori.index') }}">
                                                 Kategori
                                             </a>
-                                            <a class="dropdown-item" href="">
+                                            <a class="dropdown-item {{ Route::is('product.list*') ? 'active' : '' }}" href="{{ route('product.list.index') }}">
                                                 Produk
                                             </a>
                                         </div>

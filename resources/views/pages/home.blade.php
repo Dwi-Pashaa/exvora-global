@@ -24,9 +24,13 @@
     </section>
 
     <section id="services" class="services section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Features & Benefits</h2>
+        <p>Why Choose Us<br></p>
+      </div>
       <div class="container">
         <div class="row gy-4">
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item d-flex position-relative h-100">
               <i class="bi bi-briefcase icon flex-shrink-0"></i>
               <div>
@@ -35,16 +39,7 @@
               </div>
             </div>
           </div><!-- End Service Item -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item d-flex position-relative h-100">
-              <i class="bi bi-card-checklist icon flex-shrink-0"></i>
-              <div>
-                <h4 class="title"><a href="#" class="stretched-link">Dolor Sitema</a></h4>
-                <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item d-flex position-relative h-100">
               <i class="bi bi-card-checklist icon flex-shrink-0"></i>
               <div>
@@ -61,7 +56,7 @@
     <section id="portfolio" class="portfolio section">
       <div class="container section-title" data-aos="fade-up">
         <h2>Gallery</h2>
-        <p>Activity Gallery</p>
+        <p>The Best Capture</p>
       </div>
 
       <div class="container">

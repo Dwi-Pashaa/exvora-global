@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoriController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SubCategoriController;
 use App\Http\Controllers\Auth\LoginController;
@@ -36,6 +37,16 @@ Route::middleware(['auth'])->group(function () {
                 Route::put('/{id}/update', [SubCategoriController::class, 'update'])->name('product.sub.categori.update');
                 Route::delete('/{id}/destroy', [SubCategoriController::class, 'destroy'])->name('product.sub.categori.destroy');
             });
+        });
+
+        Route::prefix('list')->group(function () {
+            Route::get('/', [ProductController::class, 'index'])->name('product.list.index');
+            Route::get('/create', [ProductController::class, 'create'])->name('product.list.create');
+            Route::post('/store', [ProductController::class, 'store'])->name('product.list.store');
+            Route::get('/{id}/edit', [ProductController::class, 'edit'])->name('product.list.edit');
+            Route::put('/{id}/update', [ProductController::class, 'update'])->name('product.list.update');
+            Route::delete('/{id}/destroy', [ProductController::class, 'destroy'])->name('product.list.destroy');
+            Route::get('/get-sub-categori', [ProductController::class, 'getSubCategori'])->name('product.list.getSubCategori');
         });
     });
 
