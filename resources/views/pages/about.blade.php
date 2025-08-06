@@ -1,6 +1,8 @@
 @extends('layouts.app-pages')  
 
-@section('title', 'About')
+@section('title')
+  {{ $locale === "id" ? "Tentang Kami" : "About" }}
+@endsection
 
 @push('meta-seo')
     

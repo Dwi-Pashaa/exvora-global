@@ -77,6 +77,28 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label for="" class="mb-2">Latitude</label>
+                                    <input type="text" name="latitude" id="latitude" class="form-control @error('latitude') is-invalid @enderror" value="{{ $companie->latitude ?? '-6.1751' }}">
+                                    @error('latitude')
+                                        <span class="invalid-feedback">
+                                            {{$message}}
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label for="" class="mb-2">Longitude</label>
+                                    <input type="text" name="longitude" id="longitude" class="form-control @error('longitude') is-invalid @enderror" value="{{ $companie->longitude ?? '106.8650' }}">
+                                    @error('longitude')
+                                        <span class="invalid-feedback">
+                                            {{$message}}
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
 
                         <h3 class="card-title my-3">Social Media</h3>

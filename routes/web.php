@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BenefitController;
 use App\Http\Controllers\Admin\CategoriController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SubCategoriController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Pages\AboutController as PagesAboutController;
@@ -58,8 +60,18 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::prefix('pages')->group(function () {
-        Route::prefix('home')->group(function () {
-            //
+        Route::prefix('slider')->group(function () {
+            Route::get('/', [SliderController::class, 'index'])->name('pages.slider');
+            Route::get('/create', [SliderController::class, 'create'])->name('pages.slider.create');
+            Route::post('/store', [SliderController::class, 'store'])->name('pages.slider.store');
+            Route::delete('/{id}/destroy', [SliderController::class, 'destroy'])->name('pages.slider.destroy');
+        });
+
+        Route::prefix('benefit')->group(function () {
+            Route::get('/', [BenefitController::class, 'index'])->name('pages.benefit');
+            Route::get('/create', [BenefitController::class, 'create'])->name('pages.benefit.create');
+            Route::post('/store', [BenefitController::class, 'store'])->name('pages.benefit.store');
+            Route::delete('/{id}/destroy', [BenefitController::class, 'destroy'])->name('pages.benefit.destroy');
         });
 
         Route::prefix('about')->group(function () {

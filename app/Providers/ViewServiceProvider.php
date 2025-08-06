@@ -3,8 +3,11 @@
 namespace App\Providers;
 
 use App\Models\About;
+use App\Models\Benefit;
 use App\Models\Categori;
 use App\Models\Company;
+use App\Models\Product;
+use App\Models\Slider;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View as FacadesView;
 use Illuminate\Support\ServiceProvider;
@@ -24,7 +27,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        FacadesView::composer('*', function ($view) {
+        FacadesView::composer('pages/*', function ($view) {
             $locale = App::getLocale();
 
             $companie = Company::latest()->first();
@@ -33,11 +36,14 @@ class ViewServiceProvider extends ServiceProvider
 
             $about = About::latest()->first();
 
+            $slider = Slider::take(3)->orderBy('id', 'DESC')->get();
+
             $view->with([
                 'locale' => $locale,
                 'companie' => $companie,
                 'about' => $about,
                 'categorie' => $categorie,
+                'slider' => $slider,
             ]);
         });
     }

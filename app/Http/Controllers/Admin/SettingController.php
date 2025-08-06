@@ -59,6 +59,8 @@ class SettingController extends Controller
             "instagram" => "required|string",
             "linkedin" => "required|string",
             "image" => "nullable|mimes:png,jpg,jpeg|max:2048",
+            "latitude" => "required",
+            "longitude" => "required",
         ]);
 
         $data = $request->except('image');

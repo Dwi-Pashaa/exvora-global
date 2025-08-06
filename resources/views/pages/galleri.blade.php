@@ -1,6 +1,8 @@
 @extends('layouts.app-pages')  
 
-@section('title', 'Gallery')
+@section('title')
+  {{ $locale === "id" ? "Galeri" : "Gallery" }}
+@endsection
 
 @push('meta-seo')
     

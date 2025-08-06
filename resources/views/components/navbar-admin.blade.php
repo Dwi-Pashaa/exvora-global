@@ -13,6 +13,14 @@
                                     <span class="nav-link-title"> Dashboard </span>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('home') }}" target="_blank">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-home-share"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2c.247 0 .484 .045 .702 .127" /><path d="M19 12h2l-9 -9l-9 9h2v7a2 2 0 0 0 2 2h5" /><path d="M16 22l5 -5" /><path d="M21 21.5v-4.5h-4.5" /></svg>
+                                    </span>
+                                    <span class="nav-link-title"> Beranda </span>
+                                </a>
+                            </li>
                             <li class="nav-item dropdown {{ Route::is('product*') ? 'active' : '' }}">
                                 <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -63,8 +71,11 @@
                                 <div class="dropdown-menu">
                                     <div class="dropdown-menu-columns">
                                         <div class="dropdown-menu-column">
-                                            <a class="dropdown-item" href="./accordion.html">
-                                                Beranda
+                                            <a class="dropdown-item {{ Route::is('pages.slider') ? 'active' : '' }}" href="{{ route('pages.slider') }}">
+                                                Slider
+                                            </a>
+                                            <a class="dropdown-item {{ Route::is('pages.benefit') ? 'active' : '' }}" href="{{ route('pages.benefit') }}">
+                                                Manfaat
                                             </a>
                                             <a class="dropdown-item {{ Route::is('pages.about') ? 'active' : '' }}" href="{{ route('pages.about') }}">
                                                 Tentang Kami

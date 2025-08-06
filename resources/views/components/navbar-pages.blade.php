@@ -1,9 +1,10 @@
 <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
       <a href="{{ route('home') }}" class="logo d-flex align-items-center me-auto">
-        <h1 class="sitename">
-          {{ $companie->name ?? 'Perusahaan' }}
-        </h1>
+          <h1 class="sitename desktop-logo">
+              {{ $companie->name ?? 'Perusahaan' }}
+          </h1>
+          <img src="{{ asset($companie->image ?? 'img/logo.png') }}" alt="Logo" class="mobile-logo">
       </a>
       <nav id="navmenu" class="navmenu">
         <ul>
@@ -23,6 +24,8 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      <a class="btn-getstarted" href="{{ route('login') }}">Login</a>
+      @guest
+        <a class="btn-getstarted" href="{{ route('login') }}">Login</a>
+      @endguest
     </div>
 </header>
