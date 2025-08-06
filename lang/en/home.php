@@ -8,4 +8,6 @@ return [
     "body_sec_feature" => "Why Choose Us",
     "head_sec_gallery" => "Gallery",
     "body_sec_gallery" => "The Best Capture",
+    "head_sec_product" => "Our Product",
+    "body_sec_product" => "We Always Provide Top Cocoa for your Top Business!"
 ];

@@ -8,4 +8,6 @@ return [
     "body_sec_feature" => "Mengapa Memilih Kami",
     "head_sec_gallery" => "galleri",
     "body_sec_gallery" => "Tangkapan Terbaik",
+    "head_sec_product" => "Produk Kami",
+    "body_sec_product" => "Kami Selalu Menyediakan Cokelat Terbaik untuk Bisnis Terbaik Anda!"
 ];

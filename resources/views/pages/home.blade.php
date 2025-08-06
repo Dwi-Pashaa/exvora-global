@@ -108,8 +108,8 @@
                   background-repeat: no-repeat;
                 ">
       <div class="container section-title" data-aos="fade-up">
-        <h2 class="text-white">@lang('home.head_sec_gallery')</h2>
-        <p class="text-white">@lang('home.body_sec_gallery')</p>
+        <h2 class="text-white">@lang('home.head_sec_product')</h2>
+        <p class="text-white">@lang('home.body_sec_product')</p>
       </div>
 
       <div class="container">
