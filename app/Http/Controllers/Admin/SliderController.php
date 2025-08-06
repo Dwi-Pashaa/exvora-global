@@ -21,7 +21,7 @@ class SliderController extends Controller
                 ->orWhere('desc_id', 'like', "%{$search}%");
         })->get();
 
-        return view("admin.Slider.index", compact("slider"));
+        return view("admin.slider.index", compact("slider"));
     }
 
     /**
@@ -29,7 +29,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view("admin.Slider.create");
+        return view("admin.slider.create");
     }
 
     /**
