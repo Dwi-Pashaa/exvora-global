@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\About;
 use App\Models\Benefit;
+use App\Models\Blog;
 use App\Models\Categori;
 use App\Models\Company;
 use App\Models\Product;
@@ -38,12 +39,15 @@ class ViewServiceProvider extends ServiceProvider
 
             $slider = Slider::take(3)->orderBy('id', 'DESC')->get();
 
+            $blog = Blog::with('categori', 'user')->take(4)->orderBy('id', 'DESC')->get();
+
             $view->with([
                 'locale' => $locale,
                 'companie' => $companie,
                 'about' => $about,
                 'categorie' => $categorie,
                 'slider' => $slider,
+                'blog' => $blog
             ]);
         });
     }

@@ -117,7 +117,7 @@
           <div class="row isotope-container" data-aos="fade-up" data-aos-delay="200">
             @forelse ($product as $prd)
               <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                <div class="card" style="max-width: 320px">
+                <div class="card mb-3">
                     <img src="{{ asset($prd->image) }}" class="card-img-top" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title">
@@ -128,12 +128,11 @@
                         </p>
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light">
-                        <button class="btn btn-primary"
-                                onclick="window.location.href='{{ asset($prd->catalog) }}'">
-                          Download Catalog
+                        <button class="btn btn-primary" onclick="window.location.href='{{ asset($prd->catalog) }}'">
+                            @lang('home.btn_download_catalog')
                         </button>
                         <button class="btn btn-outline-secondary" onclick="window.open('https://wa.me/{{ $companie->telp }}', '_blank')">
-                          Quote Now
+                            @lang('home.btn_quote_catalog')
                         </button>
                     </div>
                 </div>
@@ -144,6 +143,60 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <section id="blog-posts" class="blog-posts section">
+
+      <div class="container">
+        <div class="container section-title" data-aos="fade-up">
+          <h2>@lang('home.head_sec_blog')</h2>
+          <p>@lang('home.body_sec_blog')</p>
+        </div>
+        <div class="row gy-4">
+          @forelse ($blog as $blg)
+            <div class="col-lg-6">
+              <article>
+
+                <div class="post-img">
+                  <img src="{{ asset($blg->image)}}" alt="" class="img-fluid">
+                </div>
+
+                <h2 class="title">
+                  <a href="{{ route('blog.detail', ['id' => $blg->id]) }}">
+                    {{ $blg->title }}
+                  </a>
+                </h2>
+
+                <div class="meta-top">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
+                        href="{{ route('blog.detail', ['id' => $blg->id]) }}">{{ $blg->user->name }}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
+                        href="{{ route('blog.detail', ['id' => $blg->id]) }}"><time datetime="2022-01-01">{{ \Carbon\Carbon::parse($blg->created_at)->format('d F Y') }}</time></a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a
+                        href="{{ route('blog.detail', ['id' => $blg->id]) }}">{{ $blg->categori->name }}</a></li>
+                  </ul>
+                </div>
+
+                <div class="content">
+                  <p>
+                    {{ Str::limit(strip_tags($locale === 'id' ? $blg->desc_id : $blg->desc_en), 200) }}
+                  </p>
+
+                  <div class="read-more">
+                    <a href="{{ route('blog.detail', ['id' => $blg->id]) }}">@lang('home.btn_detail_blog')</a>
+                  </div>
+                </div>
+
+              </article>
+            </div>
+          @empty
+              <i>Belum Ada Berita</i>
+          @endforelse
+        </div>
+
+      </div>
+
     </section>
 
     @if($companie && $companie->latitude && $companie->longitude)

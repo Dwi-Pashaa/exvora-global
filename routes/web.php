@@ -2,15 +2,18 @@
 
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\BenefitController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoriController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\KategoriBlogController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SubCategoriController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Pages\AboutController as PagesAboutController;
+use App\Http\Controllers\Pages\BlogController as PagesBlogController;
 use App\Http\Controllers\Pages\GalleryController as PagesGalleryController;
 use App\Http\Controllers\Pages\HomeController;
 use App\Http\Controllers\SetLocaleController;
@@ -20,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [PagesAboutController::class, 'index'])->name('about');
 Route::get('/gallery', [PagesGalleryController::class, 'index'])->name('gallery');
+Route::get('/blogs', [PagesBlogController::class, 'index'])->name('blog');
+Route::get('/blogs/{id}/detail', [PagesBlogController::class, 'show'])->name('blog.detail');
 
 // admin-page
 Route::get('/login', [LoginController::class, 'index'])->name('login');
@@ -56,6 +61,26 @@ Route::middleware(['auth'])->group(function () {
             Route::put('/{id}/update', [ProductController::class, 'update'])->name('product.list.update');
             Route::delete('/{id}/destroy', [ProductController::class, 'destroy'])->name('product.list.destroy');
             Route::get('/get-sub-categori', [ProductController::class, 'getSubCategori'])->name('product.list.getSubCategori');
+        });
+    });
+
+    Route::prefix('blog')->group(function () {
+        Route::prefix('categori')->group(function () {
+            Route::get('/', [KategoriBlogController::class, 'index'])->name('blog.categori.index');
+            Route::get('/create', [KategoriBlogController::class, 'create'])->name('blog.categori.create');
+            Route::post('/store', [KategoriBlogController::class, 'store'])->name('blog.categori.store');
+            Route::get('/{id}/edit', [KategoriBlogController::class, 'edit'])->name('blog.categori.edit');
+            Route::put('/{id}/update', [KategoriBlogController::class, 'update'])->name('blog.categori.update');
+            Route::delete('/{id}/destroy', [KategoriBlogController::class, 'destroy'])->name('blog.categori.destroy');
+        });
+
+        Route::prefix('list')->group(function () {
+            Route::get('/', [BlogController::class, 'index'])->name('blog.index');
+            Route::get('/create', [BlogController::class, 'create'])->name('blog.create');
+            Route::post('/store', [BlogController::class, 'store'])->name('blog.store');
+            Route::get('/{id}/edit', [BlogController::class, 'edit'])->name('blog.edit');
+            Route::put('/{id}/update', [BlogController::class, 'update'])->name('blog.update');
+            Route::delete('/{id}/destroy', [BlogController::class, 'destroy'])->name('blog.destroy');
         });
     });
 

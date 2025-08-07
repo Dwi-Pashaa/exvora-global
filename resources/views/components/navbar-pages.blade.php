@@ -12,7 +12,7 @@
           <li><a href="{{ route('about') }}" class="{{ Route::is('about') ? 'active' : '' }}">@lang('navbar.about')</a></li>
           <li><a href="{{ route('gallery') }}" class="{{ Route::is('gallery') ? 'active' : '' }}">@lang('navbar.gallery')</a></li>
           <li><a href="">@lang('navbar.product')</a></li>
-          <li><a href="">@lang('navbar.blog')</a></li>
+          <li><a href="{{ route('blog') }}" class="{{ Route::is('blog*') ? 'active' : '' }}">@lang('navbar.blog')</a></li>
           <li><a href="">@lang('navbar.contact')</a></li>
           <li class="dropdown">
             <a href="#"><span>@lang('navbar.language')</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Categori extends Model
 {
     protected $table = 'categori';
-    protected $fillable = ['name', 'slug'];
+    protected $fillable = ['name', 'slug', 'type'];
 
     public function subCategori()
     {

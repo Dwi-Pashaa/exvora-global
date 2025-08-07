@@ -10,7 +10,8 @@ class AboutController extends Controller
 {
     public function index()
     {
-        return view("admin.about.index");
+        $about = About::latest()->first();
+        return view("admin.about.index", compact("about"));
     }
 
     public function store(Request $request)
