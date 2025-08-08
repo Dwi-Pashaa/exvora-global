@@ -14,8 +14,10 @@ use App\Http\Controllers\Admin\SubCategoriController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Pages\AboutController as PagesAboutController;
 use App\Http\Controllers\Pages\BlogController as PagesBlogController;
+use App\Http\Controllers\Pages\ContactController;
 use App\Http\Controllers\Pages\GalleryController as PagesGalleryController;
 use App\Http\Controllers\Pages\HomeController;
+use App\Http\Controllers\Pages\ProductController as PagesProductController;
 use App\Http\Controllers\SetLocaleController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,8 +25,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [PagesAboutController::class, 'index'])->name('about');
 Route::get('/gallery', [PagesGalleryController::class, 'index'])->name('gallery');
+Route::get('/products', [PagesProductController::class, 'index'])->name('pages.product');
+Route::get('/products/{id}/detail', [PagesProductController::class, 'show'])->name('pages.product.detail');
 Route::get('/blogs', [PagesBlogController::class, 'index'])->name('blog');
 Route::get('/blogs/{id}/detail', [PagesBlogController::class, 'show'])->name('blog.detail');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 // admin-page
 Route::get('/login', [LoginController::class, 'index'])->name('login');

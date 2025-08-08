@@ -12,6 +12,7 @@ return [
     "body_sec_product" => "We Always Provide Top Cocoa for your Top Business!",
     "btn_download_catalog" => "Download Catalog",
     "btn_quote_catalog" => "Order Now",
+    "btn_detail_catalog" => "Detail Product",
     "head_sec_blog" => "Our Blog",
     "body_sec_blog" => "Latest Blogs",
     "btn_detail_blog" => "Read More",

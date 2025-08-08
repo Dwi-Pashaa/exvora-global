@@ -128,10 +128,13 @@
                         </p>
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light">
-                        <button class="btn btn-primary" onclick="window.location.href='{{ asset($prd->catalog) }}'">
+                        <a href="" class="btn btn-outline-primary btn-sm">
+                            @lang('home.btn_detail_catalog')
+                        </a>
+                        <button class="btn btn-outline-warning btn-sm" onclick="window.location.href='{{ asset($prd->catalog) }}'">
                             @lang('home.btn_download_catalog')
                         </button>
-                        <button class="btn btn-outline-secondary" onclick="window.open('https://wa.me/{{ $companie->telp }}', '_blank')">
+                        <button class="btn btn-outline-secondary btn-sm" onclick="window.open('https://wa.me/{{ $companie->telp }}', '_blank')">
                             @lang('home.btn_quote_catalog')
                         </button>
                     </div>
